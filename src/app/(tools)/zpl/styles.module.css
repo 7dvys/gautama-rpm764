@@ -1,0 +1,83 @@
+.zpl{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: 60vw;
+    /* border:1px solid rgba(0,0,0,0.1); */
+    flex-basis: 100%;
+    justify-content: space-between;
+    flex-shrink: 0;
+    gap: 2rem;
+}
+
+
+.inputContainer{
+    flex: 1;
+    width: 25vw;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav{
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    list-style:none;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 1rem;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.active{
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    font-weight: 600;
+}
+
+.textarea{
+    flex-basis: 100%;
+    padding: 1rem;
+    border: none;
+    background: none;
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.textarea::-webkit-scrollbar{
+    display: none;
+}
+
+
+.outputContainer{
+    flex: 1;
+    width: 25vw;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.outputContainer>textarea{
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 1rem;
+}
+
+.clipboard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.clipboard:hover{
+    cursor: pointer;
+}
+
+.clipboardImage{
+    height: 1.1rem;
+}
