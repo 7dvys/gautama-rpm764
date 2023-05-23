@@ -1,11 +1,12 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Gautama-rpm937',
   description: 'Static Site - Tool',
+  icons:{
+    icon:'alien.png',
+  }
 }
 
 export default function RootLayout({
@@ -15,8 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={inter.className}>
+ 
+      <body>
         <main className="container">
+          <div>
+              <Link href={'/'} className="inicio">
+                  Inicio
+              </Link>
+          </div>
           {children}
         </main>
       </body>

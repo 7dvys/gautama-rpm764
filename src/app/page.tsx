@@ -1,6 +1,7 @@
+'use client'
 import React from "react";
 import Link from "next/link";
-import styles from './styles.module.css'
+import styles from './home.module.css'
 
 interface EntranceProps{
     title:string;
@@ -18,10 +19,9 @@ const Entrance: React.FC<EntranceProps>=({title,description,href})=>{
 
 const Home: React.FC = () => (
     <>
-        <div></div>
-        <img src="alien.png" alt="Alien Logo" width={350} height={350} />
+        <img src="/alien.png" alt="Alien Logo" width={350} height={350} />
         <nav className={styles.nav}>
-            <Entrance href={"/zpl"} title="Etiquetas" description="Genera Etiquetas ZPL"/>
+            <Entrance href={"./zpl"} title="Etiquetas" description="Genera Etiquetas ZPL"/>
             {/* <Entrance href={"#"} title="Precios" description="Modifica facilmente los precios"/> */}
         </nav>
     </>

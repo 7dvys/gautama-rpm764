@@ -1,6 +1,6 @@
 'use client'
-import styles from './styles.module.css'
 import { useState,useEffect } from 'react'
+import styles from './zpl.module.css'
 
 const formatedZpl = (zpl:string)=>{
     const formatedZpl = zpl.split('^XA').map((row,index)=>{
@@ -59,7 +59,8 @@ const zpl:React.FC = ()=>{
                     >
                         <img 
                             className={styles.clipboardImage}
-                            src="copy.svg" 
+                            src="./copy.svg" 
+                 
                         />
                     </div>
                 </nav>
