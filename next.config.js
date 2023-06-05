@@ -2,7 +2,8 @@
 const nextConfig = {
     env:{
         PrinterName:process.env.PrinterName,
-        ThermalMethod:process.env.ThermalMethod
+        ThermalMethod:process.env.ThermalMethod,
+        Host:process.env.Host
     },
     
 }
