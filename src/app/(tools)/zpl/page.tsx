@@ -5,7 +5,7 @@ import {formatFull} from './utils';
 import { Tab, TabTool} from './components';
 
 const Zpl:React.FC = ()=>{
-    const [tab,setTab] = useState('Full');
+    const [tab,setTab] = useState('Etiquetas');
     const [zpl,setZpl] = useState('');
     const [result,setResult] = useState('');
 
