@@ -23,6 +23,22 @@ const Zpl:React.FC = ()=>{
         setResult(tmp)
     },[zpl])
     
+    function print(result:string){
+        if(result && confirm(`Impresora: ${process.env.PrinterName}\nZPL:\n${result}`)){
+            const printer = process.env.PrinterName;
+            const destination = 'http://localhost:3000/printer';
+            const config = {
+                method:'POST',
+                headers:{
+                    'Content-type':'application/json'
+                },
+                body:JSON.stringify({printer:printer,zpl:result})
+            }
+            fetch(destination,config).then(()=>{alert('Archivo impreso!')});
+        }
+
+    }
+    
     return (
         <div className={styles.container}>
             <nav className={styles.nav}>
@@ -31,7 +47,7 @@ const Zpl:React.FC = ()=>{
                     <Tab tab={tab} setTab={setTab} tabName='Full' styles={styles}/>
                 </div>
                 
-                <img onClick={()=>{console.log(result)}} src="/printIcon.svg" className={styles.img} />
+                <img onClick={()=>{print(result)}} src="/printIcon.svg" className={styles.img} />
             </nav>
             <div className={styles.navTool}>
                 <TabTool tab={tab} setZpl={setZpl}/>

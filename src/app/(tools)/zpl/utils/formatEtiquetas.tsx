@@ -12,14 +12,14 @@ const formatEtiquetas = (EtiquetasArray:Etiqueta[])=>{
     let zplCode = "";
     for(const [codigo,titulo] of formatLabelList){
         if(!n){
-            zplCode+="^XA^MU203^MD10^MTD^LH0,0^PW799^LL240"
-            +`^FO10,40^A0N,20,20^FD${titulo}^FS`
-            +`^FO10,70^BY2^BCN,120,Y,N,N^FD${codigo}^FS`
+            zplCode+="^XA\n^MU203\n^MD10\n^MTD\n^LH0,0\n^PW799\n^LL240"
+            +`^FO10,40^A0N,20,20^FD${titulo}^FS\n`
+            +`^FO10,70^BY2^BCN,120,Y,N,N^FD${codigo}^FS\n`
             n++;
         }else{
-            zplCode+=`^FO440,40^A0N,20,20^FD${titulo}^FS`
-            +`^FO440,70^BY2^BCN,120,Y,N,N^FD${codigo}^FS`
-            +"^XZ"
+            zplCode+=`^FO440,40^A0N,20,20^FD${titulo}^FS\n`
+            +`^FO440,70^BY2^BCN,120,Y,N,N^FD${codigo}^FS\n`
+            +"^XZ\n"
             n--;
         }
     }

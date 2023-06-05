@@ -22,7 +22,7 @@ const Home: React.FC = () => (
         <img src="/alien.png" alt="Alien Logo" width={350} height={350} />
         <nav className={styles.nav}>
             <Entrance href={"./zpl"} title="Etiquetas" description="Genera Etiquetas ZPL"/>
-            {/* <Entrance href={"#"} title="Precios" description="Modifica facilmente los precios"/> */}
+            <Entrance href={"#"} title="Precios" description="Modifica facilmente los precios"/>
         </nav>
     </>
 );
