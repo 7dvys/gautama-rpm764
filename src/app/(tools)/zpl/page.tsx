@@ -25,8 +25,9 @@ const Zpl:React.FC = ()=>{
     
     function print(result:string){
         if(result && confirm(`Impresora: ${process.env.PrinterName}\nZPL:\n${result}`)){
+            const host = process.env.Host;
             const printer = process.env.PrinterName;
-            const destination = 'http://localhost:3000/printer';
+            const destination = `http://${host}:3000/printer`;
             const config = {
                 method:'POST',
                 headers:{

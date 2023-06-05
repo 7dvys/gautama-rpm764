@@ -53,7 +53,13 @@ const GET = async()=>{
         
         return new Response(JSON.stringify({zpl:zpl,printer:printer}), {
             status: 200,
-          });
+           
+              headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+              },
+            });
     } catch (error) {
         console.log('error: ', error);
         return NextResponse.json({ error: 'An error occurred' });
