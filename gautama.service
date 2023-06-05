@@ -1,0 +1,13 @@
+[Unit]
+Description=Gauatama Next.js App Service
+After=network.target
+
+[Service]
+ExecStart=npm run start
+WorkingDirectory=/ruta/a/tu/proyecto/
+Restart=always
+User=nombre_usuario
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
