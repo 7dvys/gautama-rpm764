@@ -1,4 +1,6 @@
-const formatedRow = (zplRow:string) => {
+import { formatZpl } from "./formatZPL";
+
+const formatFull = (zpl:string)=>{
     const desplazamiento = 76;
 
     const reemplazos = [
@@ -9,22 +11,10 @@ const formatedRow = (zplRow:string) => {
         ['FT438', `FT${438 + desplazamiento}`]
     ];
 
-    let formatedRow = zplRow;
-
-    reemplazos.forEach(([busqueda, reemplazo]) => {
-        const regex = new RegExp(busqueda, 'g');
-        formatedRow = formatedRow.replace(regex, reemplazo);
-    });
-
-    return formatedRow;
-}
-
-const formatFull = (zpl:string)=>{
-    const formatFull = zpl.split('^XA').map((row,index)=>{
-        return index>0?"^XA\n^MD10\n^PR4\n^MTD\n^LH0,0\n^PW799\n^LL240\n"+formatedRow(row):""            
-    })
+    const thermalMethod = process.env.ThermalMethod;
+    const formatFull = "^XA\n^MD10\n^PR4\n"+thermalMethod+"\n^LH0,0\n^PW799\n^LL240\n";
     
-    return formatFull.join("");
+    return formatZpl({zpl:zpl,reemplazos:reemplazos,format:formatFull});
 }
 
 export {formatFull};

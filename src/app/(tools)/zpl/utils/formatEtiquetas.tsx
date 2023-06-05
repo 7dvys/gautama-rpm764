@@ -1,6 +1,10 @@
 type Etiqueta = {id:number;codigo:string;titulo:string;cantidad:number}
 
-const formatEtiquetas = (EtiquetasArray:Etiqueta[])=>{
+interface formatEtiquetasProps{
+    EtiquetasArray:Etiqueta[];
+    format:string;
+}
+const formatEtiquetas = ({EtiquetasArray,format}:formatEtiquetasProps)=>{
     const formatLabelList = EtiquetasArray.reduce((acc:Array<{codigo:string;titulo:string}>[],{cantidad,titulo,codigo})=>{
         if(cantidad && titulo && codigo){
             acc.push(...Array(cantidad).fill([codigo,titulo]))
@@ -12,13 +16,13 @@ const formatEtiquetas = (EtiquetasArray:Etiqueta[])=>{
     let zplCode = "";
     for(const [codigo,titulo] of formatLabelList){
         if(!n){
-            zplCode+="^XA\n^MU203\n^MD10\n^MTD\n^LH0,0\n^PW799\n^LL240"
-            +`^FO10,40^A0N,20,20^FD${titulo}^FS\n`
-            +`^FO10,70^BY2^BCN,120,Y,N,N^FD${codigo}^FS\n`
+            zplCode+=format
+            +`^FO10,20^BY2^BCN,30,Y,N,N^FD${codigo}^FS\n`
+            +`^FO10,80^FB380,2,2,C^A0N,70,60^FD${titulo}^FS\n`
             n++;
         }else{
-            zplCode+=`^FO440,40^A0N,20,20^FD${titulo}^FS\n`
-            +`^FO440,70^BY2^BCN,120,Y,N,N^FD${codigo}^FS\n`
+            zplCode+=`^FO440,20^BY2^BCN,30,Y,N,N^FD${codigo}^FS\n`
+            +`^FO440,80^FB380,2,2,C^A0N,70,60^FD${titulo}^FS\n`
             +"^XZ\n"
             n--;
         }

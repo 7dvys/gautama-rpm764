@@ -77,9 +77,11 @@ const Etiquetas:React.FC<{setZpl:Function}> = ({setZpl})=>{
             etiquetas.filter(({id})=>(id != removeId))
         )
     }
+    const thermalMethod = process.env.ThermalMethod;
+    const formatLabels = "^XA\n^MU203\n^MD10\n"+thermalMethod+"\n^LH0,0\n^PW799\n^LL240";
 
     useEffect(()=>{
-        setZpl(formatEtiquetas(etiquetas))
+        setZpl(formatEtiquetas({EtiquetasArray:etiquetas,format:formatLabels}))
     },[etiquetas])
     
     
