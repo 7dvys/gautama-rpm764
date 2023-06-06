@@ -1,10 +1,10 @@
-import styles from './Full.module.css'
+import styles from './Zpl.module.css'
 
-interface FullProps{
+interface ZplProps{
     setZpl:Function;
 }
 
-const Full:React.FC<FullProps> = ({setZpl})=>(
+const Zpl:React.FC<ZplProps> = ({setZpl})=>(
     <textarea 
         className={styles.textarea} 
         onChange={(e)=>{
@@ -15,4 +15,4 @@ const Full:React.FC<FullProps> = ({setZpl})=>(
     />
 ) 
 
-export {Full};
+export {Zpl};

@@ -1,2 +1,2 @@
-export {Full} from './Full'
+export {Zpl} from './Zpl'
 export {Etiquetas} from './Etiquetas'

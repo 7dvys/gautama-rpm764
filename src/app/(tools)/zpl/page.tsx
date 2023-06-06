@@ -1,7 +1,7 @@
 'use client'
 import { useState,useEffect } from 'react'
 import styles from './zpl.module.css'
-import {formatFull} from './utils';
+import {formatFull, formatFlex} from './utils';
 import { Tab, TabTool} from './components';
 
 const Zpl:React.FC = ()=>{
@@ -13,15 +13,19 @@ const Zpl:React.FC = ()=>{
         let tmp = '';
         switch (tab) {
             case 'Full':
-                    tmp = formatFull(zpl);
+                tmp = formatFull(zpl);
                 break;
-            
+            case 'Flex':
+                tmp = formatFlex(zpl);
+                break;
             default:
                 tmp= zpl;
                 break;
         }
         setResult(tmp)
     },[zpl])
+
+    useEffect(()=>{setResult('')},[tab])
     
     function print(result:string){
         if(result && confirm(`Impresora: ${process.env.PrinterName}\nZPL:\n${result}`)){
@@ -46,6 +50,7 @@ const Zpl:React.FC = ()=>{
                 <div className={styles.tabs}>
                     <Tab tab={tab} setTab={setTab} tabName='Etiquetas' styles={styles}/>
                     <Tab tab={tab} setTab={setTab} tabName='Full' styles={styles}/>
+                    <Tab tab={tab} setTab={setTab} tabName='Flex' styles={styles}/>
                 </div>
                 
                 <img onClick={()=>{print(result)}} src="/printIcon.svg" className={styles.img} />

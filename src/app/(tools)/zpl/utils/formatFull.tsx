@@ -1,6 +1,9 @@
-import { formatZpl } from "./formatZPL";
+import { formatZpl } from "./formatZpl";
 
 const formatFull = (zpl:string)=>{
+    const thermalMethod = process.env.ThermalMethod;
+    const formatFull = "^XA\n^MD10\n^PR4\n"+thermalMethod+"\n^LH0,0\n^PW799\n^LL240\n";
+
     const desplazamiento = 76;
 
     const reemplazos = [
@@ -11,8 +14,7 @@ const formatFull = (zpl:string)=>{
         ['FT438', `FT${438 + desplazamiento}`]
     ];
 
-    const thermalMethod = process.env.ThermalMethod;
-    const formatFull = "^XA\n^MD10\n^PR4\n"+thermalMethod+"\n^LH0,0\n^PW799\n^LL240\n";
+    
     
     return formatZpl({zpl:zpl,reemplazos:reemplazos,format:formatFull});
 }

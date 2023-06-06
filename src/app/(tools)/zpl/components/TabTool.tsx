@@ -1,4 +1,4 @@
-import { Full,Etiquetas } from "./tabTools";
+import { Zpl,Etiquetas } from "./tabTools";
 
 interface TabToolProps{
     tab:string;
@@ -8,8 +8,9 @@ interface TabToolProps{
 const TabTool:React.FC<TabToolProps> = ({tab,setZpl})=>{
     switch (tab) {
         case "Full":
-            return <Full setZpl={setZpl} />
-    
+            return <Zpl setZpl={setZpl} />
+        case "Flex":
+            return <Zpl setZpl={setZpl} />
         default:
             return <Etiquetas setZpl={setZpl} />
     }

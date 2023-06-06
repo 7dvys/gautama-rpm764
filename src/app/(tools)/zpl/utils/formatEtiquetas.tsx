@@ -2,9 +2,11 @@ type Etiqueta = {id:number;codigo:string;titulo:string;cantidad:number}
 
 interface formatEtiquetasProps{
     EtiquetasArray:Etiqueta[];
-    format:string;
 }
-const formatEtiquetas = ({EtiquetasArray,format}:formatEtiquetasProps)=>{
+const formatEtiquetas = ({EtiquetasArray}:formatEtiquetasProps)=>{
+    const thermalMethod = process.env.ThermalMethod;
+    const format = "^XA\n^MD10\n"+thermalMethod+"\n^LH0,0\n^PW799\n^LL240";
+    
     const formatLabelList = EtiquetasArray.reduce((acc:Array<{codigo:string;titulo:string}>[],{cantidad,titulo,codigo})=>{
         if(cantidad && titulo && codigo){
             acc.push(...Array(cantidad).fill([codigo,titulo]))

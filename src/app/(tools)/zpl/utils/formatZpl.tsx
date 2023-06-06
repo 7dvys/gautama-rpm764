@@ -1,6 +1,6 @@
 interface formatRowProps{
     zplRow:string;
-    reemplazos:string[][];
+    reemplazos:string[][] | any[];
 }
 
 const formatRow = ({zplRow,reemplazos}:formatRowProps) => {

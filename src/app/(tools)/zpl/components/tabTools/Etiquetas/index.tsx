@@ -61,7 +61,7 @@ const Etiquetas:React.FC<{setZpl:Function}> = ({setZpl})=>{
     const [etiquetas,setEtiquetas] = useState<Etiqueta[]>([])
     const [id,setId] = useState(0)
 
-    function addEtiqueta(id:number){
+    const addEtiqueta = (id:number)=>{
         setEtiquetas([...etiquetas,{
             id:id,
             codigo:'',
@@ -72,16 +72,14 @@ const Etiquetas:React.FC<{setZpl:Function}> = ({setZpl})=>{
         setId(id+1);
     }
 
-    function remove(removeId:number){
+    const remove = (removeId:number)=>{
         setEtiquetas(
             etiquetas.filter(({id})=>(id != removeId))
         )
     }
-    const thermalMethod = process.env.ThermalMethod;
-    const formatLabels = "^XA\n^MU203\n^MD10\n"+thermalMethod+"\n^LH0,0\n^PW799\n^LL240";
 
     useEffect(()=>{
-        setZpl(formatEtiquetas({EtiquetasArray:etiquetas,format:formatLabels}))
+        setZpl(formatEtiquetas({EtiquetasArray:etiquetas}))
     },[etiquetas])
     
     
