@@ -19,11 +19,14 @@ export default function RootLayout({
  
       <body>
         <main className="container">
-          <div>
-              <Link href={'/'} className="inicio">
+          <nav className='homeNav'>
+              <Link href={'/'} className="navItem">
                   Inicio
               </Link>
-          </div>
+              {/* <Link href={'/config'} className="navItem">
+                  Config
+              </Link> */}
+          </nav>
           {children}
         </main>
       </body>

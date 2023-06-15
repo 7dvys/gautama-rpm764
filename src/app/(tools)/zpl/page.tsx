@@ -28,7 +28,7 @@ const Zpl:React.FC = ()=>{
     useEffect(()=>{setResult('')},[tab])
     
     function print(result:string){
-        if(result && confirm(`Impresora: ${process.env.PrinterName}\nZPL:\n${result}`)){
+        if(result && confirm(`Destination: http://${process.env.Host}:3000/printer\nImpresora: ${process.env.PrinterName}\nZPL:\n${result}`)){
             const host = process.env.Host;
             const printer = process.env.PrinterName;
             const destination = `http://${host}:3000/printer`;
@@ -41,7 +41,6 @@ const Zpl:React.FC = ()=>{
             }
             fetch(destination,config).then(()=>{alert('Archivo impreso!')});
         }
-
     }
     
     return (
