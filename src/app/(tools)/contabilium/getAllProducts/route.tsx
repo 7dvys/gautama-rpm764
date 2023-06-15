@@ -39,6 +39,7 @@ const POST = async (request:Request)=>{
             }
         }
 
+        
         if(page == 1){
             const fetchCbResponse = await fetchCb(config)
             totalProductCounter = parseInt(fetchCbResponse.TotalItems);
@@ -65,8 +66,6 @@ const POST = async (request:Request)=>{
             allProducts.push(...Items)
         })
     })
-
-
 
     return new Response(JSON.stringify(allProducts),{status:200})
 }

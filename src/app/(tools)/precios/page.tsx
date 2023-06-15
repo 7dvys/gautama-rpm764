@@ -29,6 +29,7 @@ const precios:React.FC = ()=>{
 
         if(apiToken.access_token && Object.keys(contabiliumProducts).length == 0)
         fetchBackendContabilium({endpoint:'getAllProducts',setState:setContabiliumProducts,access_token:apiToken.access_token})
+        
     },[apiToken])
 
     return(
