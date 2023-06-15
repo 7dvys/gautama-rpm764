@@ -19,7 +19,7 @@ const fetchCb = async ({endpoint,urlData,body,method,apiToken,cache}:fetchCbProp
     const headers:Record<string,string> = {"Content-type":"application/json"}
 
     if(apiToken)
-    headers["Authorization"] = `Bearer ${apiToken}`;
+    headers['Authorization'] = `Bearer ${apiToken}`;
 
     interface configProps{
         method:"POST" | "GET" | "PUT" | "DEL";
@@ -38,16 +38,13 @@ const fetchCb = async ({endpoint,urlData,body,method,apiToken,cache}:fetchCbProp
 
     if(method!='GET')
     config.body =(typeof body == 'object')?JSON.stringify(body):body;
-
-    const Request:Record<string,string>= await new Promise((resolve,reject)=>{
-        fetch(url,config as RequestInit).then(data=>data.json()).then(res=>{
-            resolve(res)
-        }).catch(e=>{
-            reject({error:e})
-        })
-    })
-
-    return Request;
-    }
+    
+    const request = await fetch(url,config as RequestInit);
+    
+    if(!request.ok)
+    throw new Error('Error de Fetch')
+    
+    return await request.json();
+}
 
 export {fetchCb}
