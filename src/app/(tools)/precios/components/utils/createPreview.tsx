@@ -75,7 +75,6 @@ const createPreview = ({workBookTableData,options,contabiliumProducts}:createPre
         )
     })
 
-    console.log(productMatches)
     return {tableDataBody,tableDataHeader,productMatches}
 }
 

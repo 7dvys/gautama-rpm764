@@ -9,6 +9,7 @@ interface fetchCbProps{
 
 const fetchCb = async ({endpoint,urlData,body,method,apiToken,cache}:fetchCbProps):Promise<Record<string,string>>=>{
     const baseUrl = "https://rest.contabilium.com/";
+    // const baseUrl = "https://172.67.74.251/"
     let url = baseUrl+endpoint;
 
     if(typeof urlData == 'object')
